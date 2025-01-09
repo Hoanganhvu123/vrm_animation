@@ -1,11 +1,11 @@
 import gtts from 'node-gtts';
 import fs from 'fs';
 
-const tts = gtts('vi');
+const tts = gtts('en');
 
 async function convertTextToSpeech({ text, fileName }) {
   try {
-    // Tạo file MP3 trực tiếp
+    // Generate MP3 file directly
     await new Promise((resolve, reject) => {
       tts.save(fileName, text, (err) => {
         if (err) reject(err);
@@ -13,7 +13,7 @@ async function convertTextToSpeech({ text, fileName }) {
       });
     });
 
-    console.log(`✅ Generated Vietnamese speech for: "${text.substring(0, 50)}..."`);
+    console.log(`✅ Generated English speech for: "${text.substring(0, 50)}..."`);
   } catch (error) {
     console.error('❌ Error generating speech:', error);
     throw error;
